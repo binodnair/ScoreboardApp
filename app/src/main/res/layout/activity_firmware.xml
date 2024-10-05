@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ACDDDD"
+    tools:context=".FirmwareUpdate">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#121010"
+        android:backgroundTint="#0C0C0C"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".LogView"
+        tools:showIn="@layout/activity_log_view">
+
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:id="@+id/tvFirmwareWindow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:scrollHorizontally="true"
+                android:text="@string/large_text"
+                android:textColor="#F1ECEC"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </HorizontalScrollView>
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/btnFirmwareUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#A52B2B"
+        android:backgroundTint="#1E1818"
+        android:onClick="onBtnUpdateClick"
+        android:text="Update Firmware"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

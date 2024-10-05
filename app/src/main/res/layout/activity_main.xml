@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".StartScreen">
+    <!-- Version Label-->
+    <TextView
+        android:id="@+id/tvVersionLabel"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="18dp"
+        android:fontFamily="@font/roboto"
+        android:text="ICAT Scoreboard"
+        android:textAlignment="textEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#767A8E"
+        android:textSize="14sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Mode Selection -->
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/updateModeButtonGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvVersionLabel"
+        app:selectionRequired="true"
+        app:singleSelection="true"
+        >
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnWiFi"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="WiFi"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAppAuto"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="App (Auto)"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAppManual"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="App (Manual)"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+    <!-- League Name -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutLeagueName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="League Name"
+        app:startIconDrawable="@drawable/ic_league"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateModeButtonGroup"
+        >
+        <AutoCompleteTextView
+            android:id="@+id/atvLeague"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="textFilter|textPersonName"
+            android:text="League Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!-- Club ID -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutClubId"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Club ID"
+        app:startIconDrawable="@drawable/ic_club"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutLeagueName"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etClubId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="6"
+            android:inputType="textFilter|number"
+            android:maxLength="6"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!-- Match ID -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutMatchId"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Match ID"
+        app:startIconDrawable="@drawable/ic_match"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutClubId"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMatchId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="6"
+            android:inputType="textFilter|number"
+            android:maxLength="6"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!-- WiFi SSID-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutWiFiSSID"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:hint="WiFi SSID"
+        app:startIconDrawable="@drawable/ic_wifi"
+        app:counterEnabled="true"
+        app:counterMaxLength="24"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMatchId"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etWiFiSSID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textFilter"
+            android:maxLength="24"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!-- WiFi Passwd-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutWiFiPasswd"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="32dp"
+        android:hint="WiFi Password"
+        app:startIconDrawable="@drawable/ic_lock"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWiFiSSID"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etWiFiPasswd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:maxLength="24"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!-- Match List Button-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15sp"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#057CB1"
+        android:id="@+id/btnListMatches"
+        android:text="Match List"
+        android:onClick="onBtnListMatchesClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWiFiPasswd" />
+    <!-- Load Match Button-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15sp"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#029A08"
+        android:id="@+id/btnLoadMatch"
+        android:text="Load Match"
+        android:onClick="onBtnLoadMatchClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnListMatches"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWiFiPasswd" />
+    <!-- Exit Button -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15sp"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#BC050E"
+        android:id="@+id/btnExit"
+        android:text="Exit"
+        android:onClick="onBtnExitClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnLoadMatch"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWiFiPasswd" />
+</androidx.constraintlayout.widget.ConstraintLayout>

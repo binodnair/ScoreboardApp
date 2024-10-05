@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/idFirmware"
+        android:icon="@drawable/firmware_update_icon"
+        android:title="Software Update"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/idStatus"
+        android:icon="@drawable/free_log_file_5"
+        android:title="ESP Log"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/idLogs"
+        android:icon="@drawable/free_log_file_1"
+        android:title="App Log"
+        app:showAsAction="ifRoom" />
+
+</menu>
