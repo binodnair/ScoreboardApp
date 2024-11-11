@@ -13,6 +13,7 @@ import java.util.UUID;
 public class ProcessBT extends Thread {
     private String btMessage;
     private Context context;
+    private int updateThreadCount = 0; // Bluetooth thread tracker
     public static boolean firmwareCheck = false;
     ProcessBT (String btMessage) {
         this.btMessage = btMessage;
@@ -64,11 +65,13 @@ public class ProcessBT extends Thread {
 
         // try maximum of 5 times
         int maxTry = 5;
+        this.updateThreadCount = ++Utils.updateThreadCount; // starting a new BT update process; increment the master tracker and save a local copy for reference
 
         for (int i=0; i<maxTry; i++) {
-            Utils.writeLog("Trying BT Send - Count #" + (i+1));
+            if (Utils.updateThreadCount > this.updateThreadCount) break; // a newer thread started sending BT message. Quit this thread
+            Utils.writeLog("Trying BT Send - Thread #: " + this.updateThreadCount + ", Retry Count #: " + (i+1));
             if (doBTTask(mDevice)) break;
-            if (i == maxTry-1) Utils.writeLog("Failed to connect to ESP32. Giving up...");
+            if (i == maxTry-1) Utils.writeLog("Failed to connect to ESP32. Thread #: " + this.updateThreadCount + " giving up...");
         }
     }
 

@@ -39,7 +39,8 @@ import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 
 public class Utils {
-    public static double APP_VER = 1.7;
+    public static double APP_VER = 1.8;
+    public static int updateThreadCount = 0; // Bluetooth thread tracker
     private static String appDir = Environment.DIRECTORY_DOWNLOADS;
     private static String firmwareFile = "/firmware.bin";
     private static String logFile = "/SB_Log.txt";
